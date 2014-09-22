@@ -1,7 +1,7 @@
 /**
  *  Class TTT implements the necessary machinery to play one
  *  game of tic-tac-toe between two players, for the
- *  second assignment in DIT948, 2014 edition. //addedcomment
+ *  second assignment in DIT948, 2014 edition.
  */
 public class TTT {
     /**
