@@ -3,7 +3,7 @@
  *  board for the
  *  second assignment in DIT948, 2014 edition.
  *  HumanPlayer implements the Player interface.
- *  
+ *  + lets see if this works	// added
  */
 public class HumanPlayer implements Player {
     /**
