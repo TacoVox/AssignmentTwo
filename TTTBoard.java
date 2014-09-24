@@ -4,8 +4,7 @@
  *  This is the main class for the application, keeping
  *  track of the state of the board, which is equivalent to
  *  the state of the game itself.
- */ 
-//blablabla
+ */
 public class TTTBoard {
     /**
      *  The board is represented by a 3x3 matrix of characters.
