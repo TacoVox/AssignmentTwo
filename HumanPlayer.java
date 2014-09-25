@@ -58,7 +58,7 @@ public class HumanPlayer implements Player
     	int usrinput;
     	
     	//Output to the user related if its a row or column
-    	if(type = 'r')
+    	if(type == 'r')
     		println("Please enter a row:");
     	else
     		println("Please enter a column:");
@@ -67,7 +67,7 @@ public class HumanPlayer implements Player
     	usrinput = readInt();
     	
     	//While the input from the user is an illegal move or an IOError
-    	while(usrinput <= 0 || usrinput usrinput >= 2 || IOError())
+    	while(usrinput <= 0 || usrinput >= 2 || IOError != false)
     	{
     		//Output --> Information that the move isn't correct
     		println("Your input isn't correct!");
