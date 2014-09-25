@@ -95,6 +95,7 @@ public class TTTBoard {
     }
 
 	// Use this to test your implementation.
+    /**
     public static void main(String[] args) {
         TTTBoard board = new TTTBoard();
         println(board);
@@ -111,4 +112,5 @@ public class TTTBoard {
         board.setRandomCell();
         println(board);
     }
+    **/
 }
