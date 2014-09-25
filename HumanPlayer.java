@@ -21,6 +21,34 @@ public class HumanPlayer implements Player
      */
     public void move(TTTBoard board)
     {
+    	//Variables for row and column
+    	int row, column;
+    	
+    	//Variables to count the number of loops
+    	int i = 0;
+    	
+    	//Do until a cell is empty
+    	do
+    	{
+    		//If i > 0 because of another loop (cell isn't empty)
+    		if (i > 0)
+    		{
+    			//User output because of a non-empty cell
+    			println("The cell you try to set is already used.");
+    			println("Please try another cell!");
+    		}
+    		
+        	//Call input for the row and column and assign it to the variables
+        	row = ask('r');
+        	column = ask ('c');
+        	
+        	//Increase i by one -> everytime a loop is completed
+        	i++;
+    	}
+    	while (board.getCell != null);
+    	
+    	//Write the input to the board
+    	board.setCell(row, column);
     }
     
     //This function askss the user for the row. It returns an integer. 
@@ -39,7 +67,7 @@ public class HumanPlayer implements Player
     	usrinput = readInt();
     	
     	//While the input from the user is an illegal move or an IOError
-    	while(usrinput < 1 || usrinput usrinput > 3 || IOError())
+    	while(usrinput <= 0 || usrinput usrinput >= 2 || IOError())
     	{
     		//Output --> Information that the move isn't correct
     		println("Your input isn't correct!");
