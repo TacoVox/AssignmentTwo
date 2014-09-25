@@ -8,5 +8,3 @@
 interface Player {
     public void move(TTTBoard board);
 }
-
-//Jonas test
