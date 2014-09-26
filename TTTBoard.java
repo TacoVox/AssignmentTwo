@@ -44,7 +44,14 @@ public class TTTBoard {
      */
     public void setRandomCell() {
     	
+    	int a = randomInt(2);
+    	int b = randomInt(2);
+    	while(a < 0 || a > 2 || b < 0 || b > 2 || board[a][b]!= ' '){
+    		a = randomInt(2);
+    		b = randomInt(2);
+    	}
     	
+    	board[a][b] = who;
 
     }
 
@@ -75,6 +82,10 @@ public class TTTBoard {
      *          second player.
      */
     public char getCell(int row, int col) {
+    	
+    	return board[row][col] 
+    	
+    	
     
     }
 
@@ -88,6 +99,8 @@ public class TTTBoard {
      *  current player.
      */
     public void setCell(int row, int col) {
+    	
+    	board[row][col] = who;
 
     }
 
@@ -116,7 +129,7 @@ public class TTTBoard {
     	for(int i = 0; i < board.length; i++) {
         	for(int j = 0; j < board.length; j++) {
         	
-        		println("|" + board[i][j]);
+        		print("|" + board[i][j]);
         		
         	}
         		
