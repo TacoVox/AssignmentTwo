@@ -30,9 +30,26 @@ public class TTTBoard {
      *          of the players has three pieces in a row,
      *          column, or diagonal.
      */
-    public boolean gameOver() 
-    {
-    	
+    public boolean gameOver() {
+    	for (int i = 0; i < board.length; i++) {
+    		for (int j = 0; j < board.length; j++) {
+    		if (who == (board[0][0] && board[0][1] && board[0][2]) ||
+    			   (board[1][0] && board[1][1] && board[1][2]) ||
+    			   (board[2][0] && board[2][1] && board[2][2]) 
+    			   ||
+    			   (board[0][0] && board[1][0] && board[2][0]) ||
+    			   (board[0][1] && board[1][1] && board[2][1]) ||
+    			   (board[0][2] && board[1][2] && board[2][2])
+    			   ||
+    			   (board[0][0] && board[1][1] && board[2][2]) ||
+    			   (board[0][2] && board[1][1] && board[2][0]))
+    		return true;
+    		else if (board[i][j] != ' ')
+    		return true;
+    		else 
+    		return false;
+    		}
+    	}
     }
    
     }
