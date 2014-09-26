@@ -5,6 +5,9 @@
  *  track of the state of the board, which is equivalent to
  *  the state of the game itself.
  */
+
+import static dit948.SimpleIO.*;
+
 public class TTTBoard {
 	
     /**
@@ -17,16 +20,8 @@ public class TTTBoard {
      *  to make the current move.  The players are identified by their
      *  char symbols, 'X' and 'O'.  The first move always belongs to 'X'.
      */
-    private char who = 'X';
-    {
-    	humanPlayer = new humanPlayer;
-    	randomPlayer = new randomPlayer;
-    	char humanPlayer = 'X'
-    	char randomPlayer = 'Y'
-    	
-    	if('X' == 'Y'){
-    		println("Player 'X' turn")
-    	}
+    private char who = 'X'; {
+    
     }
 
     /**
@@ -35,8 +30,11 @@ public class TTTBoard {
      *          of the players has three pieces in a row,
      *          column, or diagonal.
      */
-    public boolean gameOver() {
+    public boolean gameOver() 
+    {
     	
+    }
+   
     }
 
     /**
@@ -45,6 +43,8 @@ public class TTTBoard {
      *  If the game is already over, does nothing.
      */
     public void setRandomCell() {
+    	
+    	
 
     }
 
@@ -55,14 +55,12 @@ public class TTTBoard {
      */
     public TTTBoard() {
     	
-    	println();
-        for(int i = 0; i < TTTboard.length; i++) {
-        	for(int j = 0; j < TTTboard.length; j++) {
-        		if(board[i][j] == null) {
-        			println("-");
-        		}
-        		else {
-        			println(TTTboard[i][j])
+ 
+        for(int i = 0; i < board.length; i++) {
+        	for(int j = 0; j < board.length; j++) {
+ 
+        		board[i][j]=' ';
+        			
         		}
 
     }
@@ -112,6 +110,34 @@ public class TTTBoard {
      *  Remark: there is no "\n" at the end of the message.
      */
     public String toString() {
+    	
+    	println("-------");
+    	
+    	for(int i = 0; i < board.length; i++) {
+        	for(int j = 0; j < board.length; j++) {
+        	
+        		println("|" + board[i][j]);
+        		
+        	}
+        		
+        	println("|");
+        	println("-------");
+        if(gameOver()){	
+        	Println("Game over")
+        }
+        
+        else{
+        	
+        	
+        	if(who == 'O')
+        		who == 'X';
+        	  else
+        		  who == 'O';
+        	println("Player "+ who + "to move");
+        }
+    	
+        
+    }
 
     }
 
