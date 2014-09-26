@@ -122,12 +122,14 @@ public class TTTBoard {
      *
      *  Remark: there is no "\n" at the end of the message.
      */
-    public String toString() {
+    public String toString()
+    {
     	
     	println("-------");
     	
-    	for(int i = 0; i < board.length; i++) {
-        	for(int j = 0; j < board.length; j++) {
+    	for(int i = 0; i < board.length; i++){
+    		
+        	for(int j = 0; j < board.length; j++){
         	
         		print("|" + board[i][j]);
         		
@@ -135,22 +137,21 @@ public class TTTBoard {
         		
         	println("|");
         	println("-------");
-        if(gameOver()){	
-        	Println("Game over")
-        }
+        	
+        	if(gameOver()){	
+        		Println("Game over")
+        	}
         
-        else{
-        	
-        	
-        	if(who == 'O')
+        	else{
+        		if(who == 'O')
         		who == 'X';
-        	  else
+        		else
         		  who == 'O';
-        	println("Player "+ who + "to move");
-        }
+        		println("Player "+ who + "to move");
+        	}
     	
         
-    }
+    	}
 
     }
 
