@@ -45,7 +45,7 @@ public class HumanPlayer implements Player
         	//Increase i by one -> everytime a loop is completed
         	i++;
     	}
-    	while (board.getCell != null);
+    	while (board.getCell != '');
     	
     	//Write the input to the board
     	board.setCell(row, column);
