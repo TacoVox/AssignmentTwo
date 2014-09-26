@@ -6,17 +6,28 @@
  *  the state of the game itself.
  */
 public class TTTBoard {
+	
     /**
      *  The board is represented by a 3x3 matrix of characters.
      */
     private char[][] board = new char[3][3];
-
+    
     /**
      *  The variable who keeps track of which of the players is supposed
      *  to make the current move.  The players are identified by their
      *  char symbols, 'X' and 'O'.  The first move always belongs to 'X'.
      */
     private char who = 'X';
+    {
+    	humanPlayer = new humanPlayer;
+    	randomPlayer = new randomPlayer;
+    	char humanPlayer = 'X'
+    	char randomPlayer = 'Y'
+    	
+    	if('X' == 'Y'){
+    		println("Player 'X' turn")
+    	}
+    }
 
     /**
      *  Check if the game is over.
@@ -25,7 +36,7 @@ public class TTTBoard {
      *          column, or diagonal.
      */
     public boolean gameOver() {
-
+    	
     }
 
     /**
@@ -43,6 +54,16 @@ public class TTTBoard {
      *  (the character for space: tick blank tick).
      */
     public TTTBoard() {
+    	
+    	println();
+        for(int i = 0; i < TTTboard.length; i++) {
+        	for(int j = 0; j < TTTboard.length; j++) {
+        		if(board[i][j] == null) {
+        			println("-");
+        		}
+        		else {
+        			println(TTTboard[i][j])
+        		}
 
     }
 
