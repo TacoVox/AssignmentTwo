@@ -7,7 +7,7 @@ import static dit948.SimpleIO.*;
  *  second assignment in DIT948, 2014 edition. //addedcomment
  */
 
-//	Responsible: Ivo Vryashkov
+//	Responsible: Ivo Vryashkov //
 
 public class TTT {
     /**
