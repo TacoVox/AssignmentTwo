@@ -67,7 +67,7 @@ public class HumanPlayer implements Player
     	usrinput = readInt();
     	
     	//While the input from the user is an illegal move or an IOError
-    	while(usrinput <= 0 || usrinput >= 2 || IOError != false)
+    	while(usrinput < 0 || usrinput > 2)
     	{
     		//Output --> Information that the move isn't correct
     		println("Your input isn't correct!");

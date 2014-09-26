@@ -45,7 +45,7 @@ public class TTT {
     	int player = randomInt(2);
     	
     	// print which player is to move
-    	println(" Player " + player + " to move.");
+    	println("Player " + player + " has the first move");
     	
     	// print board (initially empty)
     	println(board.toString());
@@ -54,11 +54,10 @@ public class TTT {
     	// do..while loop for the game (we want to run it at least one)
     	// ends if game is over
     	
-    	do{
-    		
-    		// integer for switching players
-    		int currentPlayer = player;
-    		
+    	// integer for switching players
+		int currentPlayer = player;
+    	
+    	do{    		
     		// if condition for right player to move based on random number above
     		if (currentPlayer == 0) {
     			players[0].move(board);
@@ -72,9 +71,6 @@ public class TTT {
     		} else {
     			currentPlayer = 0;
     		} // end if condition
-    		
-    		// print who is next to move
-    		println("Player " + currentPlayer + " to move.");
     		
     		// print the board
     		println(board.toString());

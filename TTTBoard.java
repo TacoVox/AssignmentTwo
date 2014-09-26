@@ -21,9 +21,8 @@ public class TTTBoard {
      *  to make the current move.  The players are identified by their
      *  char symbols, 'X' and 'O'.  The first move always belongs to 'X'.
      */
-    private char who = 'X'; {
-    
-    }
+    private char who = 'X';
+    private String winner;
 
     /**
      *  Check if the game is over.
@@ -32,12 +31,10 @@ public class TTTBoard {
      *          column, or diagonal.
      */
     public boolean gameOver() {
-    	boolean b = false;
-    	
-    	for (int i = 0; i < board.length; i++) {
-    		for (int j = 0; j < board.length; j++) {
-    		if ((who == board[0][0] && who == board[0][1] && who == board[0][2]) ||
-    		    (who == board[1][0] && who == board[1][1] && who == board[1][2]) ||
+    	boolean gamestate = false;
+
+    	if ((who == board[0][0] && who == board[0][1] && who == board[0][2]) ||
+    		(who == board[1][0] && who == board[1][1] && who == board[1][2]) ||
     		    (who == board[2][0] && who == board[2][1] && who == board[2][2]) 
     		    ||
     		    (who == board[0][0] && who == board[1][0] && who == board[2][0]) ||
@@ -46,14 +43,23 @@ public class TTTBoard {
     		    ||
     			(who == board[0][0] && who == board[1][1] && who == board[2][2]) ||
     			(who == board[0][2] && who == board[1][1] && who == board[2][0]))
-    		b = true;
-    		else if (board[i][j] != ' ')
-    		b = true;
-    		else 
-    		return b;
+    	{
+    		gamestate = true;
+    		winner = "The winner is Player " + who;
+    	}
+    	
+    	else{
+    		gamestate = true;
+    		
+    		for (int i = 0; i < board.length; i++){
+    			for (int j = 0; j < board.length; j++){
+    				if (board[i][j] == ' ')
+    					gamestate = false;	
+    					winner = "It's a draw. No winner.";
+    			}
     		}
     	}
-    	return b;
+    	return gamestate;
     }
 
     /**
@@ -63,11 +69,11 @@ public class TTTBoard {
      */
     public void setRandomCell() {
     	
-    	int a = randomInt(2);
-    	int b = randomInt(2);
-    	while(a < 0 || a > 2 || b < 0 || b > 2 || board[a][b]!= ' '){
-    		a = randomInt(2);
-    		b = randomInt(2);
+    	int a = randomInt(3);
+    	int b = randomInt(3);
+    	while(board[a][b]!= ' '){
+    		a = randomInt(3);
+    		b = randomInt(3);
     	}
     	
     	board[a][b] = who;
@@ -148,47 +154,24 @@ public class TTTBoard {
     		
         	for(int j = 0; j < board.length; j++){
         	
-        		output = output + "|" + board[i][j]);
+        		output = output + "|" + board[i][j];
         		
         	}
         		
         	output = output + "|\n";
         	output = output + "-------\n";
-        	
-        	if(gameOver()){	
-        		output = output + "Game over";
-        	}
-        
-        	else{
-        		if(who == 'O')
-        			who = 'X';
-        		else
-        			who = 'O';
-        		output = output + "Player "+ who + " to move";
-        	}
-    	
-        	return output;
     	}
-
+    	
+    	if (gameOver() == true){
+    		output = output + winner;
+    	}
+    	else {
+    		if(who == 'O')
+    			who = 'X';
+    		else
+    			who = 'O';
+    		output = output + "Player "+ who + " to move!\n";
+    	}
+    	return output;
     }
-
-	// Use this to test your implementation.
-    /**
-    public static void main(String[] args) {
-        TTTBoard board = new TTTBoard();
-        println(board);
-        board.setCell(0, 0);
-        println(board);
-        board.setRandomCell();
-        println(board);
-        board.setCell(0, 1);
-        println(board);
-        board.setRandomCell();
-        println(board);
-        board.setCell(0, 2);
-        println(board);
-        board.setRandomCell();
-        println(board);
-    }
-    **/
 }
