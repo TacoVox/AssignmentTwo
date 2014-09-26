@@ -4,6 +4,12 @@
  *  second assignment in DIT948, 2014 edition. //addedcomment
  */
 
+//Import SimpleIO as provided by Cezar
+import static dit948.SimpleIO.*;
+
+//Import Random as provided by Cezar
+import static dit948.Random.*;
+
 // Responsible: Ivo Vryashkov //
 public class TTT {
     /**
@@ -19,14 +25,9 @@ public class TTT {
      *  Constructs a new game with the two players.
      */
     public TTT(Player player1, Player player2) {
-    	
-
     	// assign players to array
-    	
-    	for (int i=0; i<players.length; i++) {
-    		players[0] = player1;
-    		players[1] = player2;
-    	} // end for loop
+    	players[0] = player1;
+    	players[1] = player2;
     	
     }
 
@@ -60,9 +61,9 @@ public class TTT {
     		
     		// if condition for right player to move based on random number above
     		if (currentPlayer == 0) {
-    			players[0].move();
+    			players[0].move(board);
     		} else {
-    			players[1].move();
+    			players[1].move(board);
     		} // end if condition
     		
     		// if condition to change players	
@@ -79,7 +80,7 @@ public class TTT {
     		println(board.toString());
     		
     		
-    	}while (!gameOver);	// end do...while loop
+    	}while (!board.gameOver());	// end do...while loop
     	
     }
 

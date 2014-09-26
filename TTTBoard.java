@@ -7,6 +7,7 @@
  */
 
 import static dit948.SimpleIO.*;
+import static dit948.Random.*;
 
 public class TTTBoard {
 	
@@ -31,27 +32,23 @@ public class TTTBoard {
      *          column, or diagonal.
      */
     public boolean gameOver() {
-    	for (int i = 0; i < board.length; i++) {
+    	/*for (int i = 0; i < board.length; i++) {
     		for (int j = 0; j < board.length; j++) {
     		if (who == (board[0][0] && board[0][1] && board[0][2]) ||
-    			   (board[1][0] && board[1][1] && board[1][2]) ||
-    			   (board[2][0] && board[2][1] && board[2][2]) 
-    			   ||
-    			   (board[0][0] && board[1][0] && board[2][0]) ||
-    			   (board[0][1] && board[1][1] && board[2][1]) ||
-    			   (board[0][2] && board[1][2] && board[2][2])
-    			   ||
-    			   (board[0][0] && board[1][1] && board[2][2]) ||
-    			   (board[0][2] && board[1][1] && board[2][0]))
+    			who == (board[1][0] && board[1][1] && board[1][2]) ||
+    			who == (board[2][0] && board[2][1] && board[2][2]) ||
+    			who == (board[0][0] && board[1][0] && board[2][0]) ||
+    			who == (board[0][1] && board[1][1] && board[2][1]) ||
+    			who == (board[0][2] && board[1][2] && board[2][2]) ||
+    			who == (board[0][0] && board[1][1] && board[2][2]) ||
+    			who == (board[0][2] && board[1][1] && board[2][0]))
     		return true;
     		else if (board[i][j] != ' ')
     		return true;
     		else 
     		return false;
     		}
-    	}
-    }
-   
+    	}*/
     }
 
     /**
@@ -69,7 +66,6 @@ public class TTTBoard {
     	}
     	
     	board[a][b] = who;
-
     }
 
     /**
@@ -81,12 +77,13 @@ public class TTTBoard {
     	
  
         for(int i = 0; i < board.length; i++) {
+        	
         	for(int j = 0; j < board.length; j++) {
  
         		board[i][j]=' ';
         			
-        		}
-
+        	}
+        }
     }
 
     /**
@@ -100,10 +97,7 @@ public class TTTBoard {
      */
     public char getCell(int row, int col) {
     	
-    	return board[row][col] 
-    	
-    	
-    
+    	return board[row][col];
     }
 
     /**
@@ -141,33 +135,34 @@ public class TTTBoard {
      */
     public String toString()
     {
+    	String output;
     	
-    	println("-------");
+    	output = "-------\n";
     	
     	for(int i = 0; i < board.length; i++){
     		
         	for(int j = 0; j < board.length; j++){
         	
-        		print("|" + board[i][j]);
+        		output = output + "|" + board[i][j]);
         		
         	}
         		
-        	println("|");
-        	println("-------");
+        	output = output + "|\n";
+        	output = output + "-------\n";
         	
         	if(gameOver()){	
-        		Println("Game over")
+        		output = output + "Game over";
         	}
         
         	else{
         		if(who == 'O')
-        		who == 'X';
+        			who = 'X';
         		else
-        		  who == 'O';
-        		println("Player "+ who + "to move");
+        			who = 'O';
+        		output = output + "Player "+ who + " to move";
         	}
     	
-        
+        	return output;
     	}
 
     }
