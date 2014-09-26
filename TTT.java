@@ -3,6 +3,8 @@
  *  game of tic-tac-toe between two players, for the
  *  second assignment in DIT948, 2014 edition. //addedcomment
  */
+
+// Responsible: Ivo Vryashkov
 public class TTT {
     /**
      *  A two-element array for the players.
