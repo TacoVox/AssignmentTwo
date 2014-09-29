@@ -76,14 +76,14 @@ public class TTTBoard {
      */
     public void setRandomCell() {
     	
-	//This makes the program to set a random cell for ”O” or ”X” for the randomPlayer
+	//This makes the program to set a random cell for X or O for the randomPlayer
     	int a = randomInt(3);
     	int b = randomInt(3);
     	while(board[a][b]!= ' '){
     		a = randomInt(3);
     		b = randomInt(3);
     	}
-    	//The char ”O” will appear at the random cell
+    	//The char will appear at the random cell
     	board[a][b] = who;
     }
 
@@ -175,7 +175,7 @@ public class TTTBoard {
     	if (gameOver() == true){
     		output = output + winner;
     	}
-	//The message of who’s turn it is if the game didn't end
+	//The message of whos turn it is if the game didn't end
     	else {
     		if(who == 'O')
     			who = 'X';
