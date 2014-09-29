@@ -21,7 +21,7 @@ public class TTTBoard {
      *  to make the current move.  The players are identified by their
      *  char symbols, 'X' and 'O'.  The first move always belongs to 'X'.
      */
-    private char who = 'X';
+    private char who = 'O';
     private String winner;
 
     /**
