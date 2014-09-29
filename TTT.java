@@ -1,14 +1,16 @@
+//Import SimpleIO as provided by Cezar
+import static dit948.SimpleIO.*;
+
+//Import Random as provided by Cezar
+import static dit948.Random.*;
+
 /**
  *  Class TTT implements the necessary machinery to play one
  *  game of tic-tac-toe between two players, for the
  *  second assignment in DIT948, 2014 edition. //addedcomment
  */
 
-//Import SimpleIO as provided by Cezar
-import static dit948.SimpleIO.*;
 
-//Import Random as provided by Cezar
-import static dit948.Random.*;
 
 // Responsible: Ivo Vryashkov //
 public class TTT {
@@ -42,7 +44,7 @@ public class TTT {
     public void play() {
     	
     	// random integer for which player to move first
-    	int player = randomInt(2);
+    	int player = randomInt(2) + 1;
     	
     	// print which player is to move
     	println("Player " + player + " has the first move");
@@ -50,26 +52,25 @@ public class TTT {
     	// print board (initially empty)
     	println(board.toString());
     	
-    	   	
+    	// integer for switching players
+    	int currentPlayer = player;
+    			
     	// do..while loop for the game (we want to run it at least one)
     	// ends if game is over
-    	
-    	// integer for switching players
-		int currentPlayer = player;
-    	
+    	    	
     	do{    		
-    		// if condition for right player to move based on random number above
-    		if (currentPlayer == 0) {
+    		// if condition for player to move based on random number above
+    		if (currentPlayer == 1) {
     			players[0].move(board);
     		} else {
     			players[1].move(board);
     		} // end if condition
     		
     		// if condition to change players	
-    		if (currentPlayer == 0) {
-    			currentPlayer = 1;
+    		if (currentPlayer == 1) {
+    			currentPlayer = 2;
     		} else {
-    			currentPlayer = 0;
+    			currentPlayer = 1;
     		} // end if condition
     		
     		// print the board
