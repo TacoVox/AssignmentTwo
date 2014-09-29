@@ -31,8 +31,10 @@ public class TTTBoard {
      *          column, or diagonal.
      */
     public boolean gameOver() {
+	//Creating a boolean gamestate to determine if it is game over.
     	boolean gamestate = false;
-
+	
+	//Creating a key for all the winning combinations in the array there is in the  	//game.
     	if ((who == board[0][0] && who == board[0][1] && who == board[0][2]) ||
     		(who == board[1][0] && who == board[1][1] && who == board[1][2]) ||
     		    (who == board[2][0] && who == board[2][1] && who == board[2][2]) 
@@ -44,10 +46,12 @@ public class TTTBoard {
     			(who == board[0][0] && who == board[1][1] && who == board[2][2]) ||
     			(who == board[0][2] && who == board[1][1] && who == board[2][0]))
     	{
+		//If one of the combinations above is true the game ends and it tells who 		//the winner is 
     		gamestate = true;
     		winner = "The winner is Player " + who;
     	}
-    	
+
+		//If none of the winning combinations are active there is a draw
     	else{
     		gamestate = true;
     		
@@ -59,6 +63,7 @@ public class TTTBoard {
     			}
     		}
     	}
+	//Making a return for gamestate
     	return gamestate;
     }
 
@@ -69,13 +74,14 @@ public class TTTBoard {
      */
     public void setRandomCell() {
     	
+	//This makes the program to set a random cell for ”O” or ”X” for the randomPlayer
     	int a = randomInt(3);
     	int b = randomInt(3);
     	while(board[a][b]!= ' '){
     		a = randomInt(3);
     		b = randomInt(3);
     	}
-    	
+    	//The char ”X” or ”O” will appear at the random cell
     	board[a][b] = who;
     }
 
@@ -146,8 +152,10 @@ public class TTTBoard {
      */
     public String toString()
     {
+	//Making a string output
     	String output;
-    	
+
+    	//Creating the visuals of the board that we will see in the console
     	output = "-------\n";
     	
     	for(int i = 0; i < board.length; i++){
@@ -161,10 +169,11 @@ public class TTTBoard {
         	output = output + "|\n";
         	output = output + "-------\n";
     	}
-    	
+    	//The message if the game ends
     	if (gameOver() == true){
     		output = output + winner;
     	}
+	//The message of who’s turn it is
     	else {
     		if(who == 'O')
     			who = 'X';
@@ -172,6 +181,7 @@ public class TTTBoard {
     			who = 'O';
     		output = output + "Player "+ who + " to move!\n";
     	}
+	//A return to output
     	return output;
     }
 }
