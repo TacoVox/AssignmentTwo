@@ -12,4 +12,4 @@ ivo.vryashkov@gmail.com
 
 The program logic is developed by the whole team (team meetings).
 Everybody was responsible for one class (in the comments on that class).
-We helped each other along the programming.
+We helped each other along the programming, espacially in the difficult parts.
