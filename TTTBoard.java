@@ -21,8 +21,10 @@ public class TTTBoard {
      *  to make the current move.  The players are identified by their
      *  char symbols, 'X' and 'O'.  The first move always belongs to 'X'.
      */
-    //Changing "X" to "O"
+    //Changing "X" to "O" for the correct output --> see toString()
     private char who = 'O';
+    
+    //String for saving the winner - just visible within class
     private String winner;
 
     /**
@@ -47,7 +49,7 @@ public class TTTBoard {
     			(who == board[0][0] && who == board[1][1] && who == board[2][2]) ||
     			(who == board[0][2] && who == board[1][1] && who == board[2][0]))
     	{
-		//If one of the combinations above is true the game ends and it tells who the winner is 
+    		//If one of the combinations above is true the game ends and it tells who the winner is 
     		gamestate = true;
     		winner = "The winner is Player " + who;
     	}
@@ -65,7 +67,7 @@ public class TTTBoard {
     			}
     		}
     	}
-	//Making a return for gamestate
+    	//Making a return for gamestate
     	return gamestate;
     }
 
@@ -76,13 +78,17 @@ public class TTTBoard {
      */
     public void setRandomCell() {
     	
-	//This makes the program to set a random cell for X or O for the randomPlayer
+    	//This makes the program to set a random cell for X or O for the randomPlayer
+    	//Therefore two integers are assigned to random nubers between 0 and 2
     	int a = randomInt(3);
     	int b = randomInt(3);
+    	
+    	//While there is no empty cell - assign new random ints between 0 and 2
     	while(board[a][b]!= ' '){
     		a = randomInt(3);
     		b = randomInt(3);
     	}
+    	
     	//The char will appear at the random cell
     	board[a][b] = who;
     }
@@ -94,13 +100,12 @@ public class TTTBoard {
      */
     public TTTBoard() {
     	
-    	//Creating the two dimensional array and give it int 'i' and int 'j'
-        for(int i = 0; i < board.length; i++) {
-        	
+    	//Going throu the 2D array with a capsuled for loop
+        for(int i = 0; i < board.length; i++) {      	
         	for(int j = 0; j < board.length; j++) {
  
-        		board[i][j]=' ';
-        			
+        		//Set every cell to a space character
+        		board[i][j]=' ';		
         	}
         }
     }
@@ -154,28 +159,31 @@ public class TTTBoard {
      */
     public String toString()
     {
-	//Making a string output
+    	//Create a string to save the output
     	String output;
 
     	//Creating the visuals of the board that we will see in the console
     	output = "-------\n";
     	
-    	for(int i = 0; i < board.length; i++){
-    		
+    	//Going through the array with a capsuled for loop
+    	for(int i = 0; i < board.length; i++){  		
         	for(int j = 0; j < board.length; j++){
         	
-        		output = output + "|" + board[i][j];
-        		
+        		//Add the char saved in each cell to the string (after a pipe sign)
+        		output = output + "|" + board[i][j];       		
         	}
         		
+        	//Add the last part of the frame to the String
         	output = output + "|\n";
         	output = output + "-------\n";
     	}
+    	
     	//The message if the game ends
     	if (gameOver() == true){
     		output = output + winner;
     	}
-	//The message of whos turn it is if the game didn't end
+    	
+    	//The message of whos turn it is if the game didn't end
     	else {
     		if(who == 'O')
     			who = 'X';
@@ -183,7 +191,8 @@ public class TTTBoard {
     			who = 'O';
     		output = output + "Player "+ who + " to move!\n";
     	}
-	//A return to output
+    	
+    	//Return the output string
     	return output;
     }
 }
