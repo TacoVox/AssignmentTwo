@@ -21,6 +21,7 @@ public class TTTBoard {
      *  to make the current move.  The players are identified by their
      *  char symbols, 'X' and 'O'.  The first move always belongs to 'X'.
      */
+    //Changing "X" to "O"
     private char who = 'O';
     private String winner;
 
@@ -34,7 +35,7 @@ public class TTTBoard {
 	//Creating a boolean gamestate to determine if it is game over.
     	boolean gamestate = false;
 	
-	//Creating a key for all the winning combinations in the array there is in the  	//game.
+	//Creating a key for all the winning combinations in the array there is in the game.
     	if ((who == board[0][0] && who == board[0][1] && who == board[0][2]) ||
     		(who == board[1][0] && who == board[1][1] && who == board[1][2]) ||
     		    (who == board[2][0] && who == board[2][1] && who == board[2][2]) 
@@ -46,12 +47,13 @@ public class TTTBoard {
     			(who == board[0][0] && who == board[1][1] && who == board[2][2]) ||
     			(who == board[0][2] && who == board[1][1] && who == board[2][0]))
     	{
-		//If one of the combinations above is true the game ends and it tells who 		//the winner is 
+		//If one of the combinations above is true the game ends and it tells who the winner is 
     		gamestate = true;
     		winner = "The winner is Player " + who;
     	}
 
-		//If none of the winning combinations are active there is a draw
+		//If the has an empty cell it continue and if it is full gamestate is true
+    	//and there is no of the keys above has worked it is a draw
     	else{
     		gamestate = true;
     		
@@ -81,7 +83,7 @@ public class TTTBoard {
     		a = randomInt(3);
     		b = randomInt(3);
     	}
-    	//The char ”X” or ”O” will appear at the random cell
+    	//The char ”O” will appear at the random cell
     	board[a][b] = who;
     }
 
@@ -92,7 +94,7 @@ public class TTTBoard {
      */
     public TTTBoard() {
     	
- 
+    	//Creating the two dimensional array and give it int 'i' and int 'j'
         for(int i = 0; i < board.length; i++) {
         	
         	for(int j = 0; j < board.length; j++) {
@@ -113,7 +115,7 @@ public class TTTBoard {
      *          second player.
      */
     public char getCell(int row, int col) {
-    	
+    	//The array is set to the int row and int col to get the spicific cell
     	return board[row][col];
     }
 
@@ -127,7 +129,7 @@ public class TTTBoard {
      *  current player.
      */
     public void setCell(int row, int col) {
-    	
+    	//To store the cell to the char "X" or "O"
     	board[row][col] = who;
 
     }
@@ -173,7 +175,7 @@ public class TTTBoard {
     	if (gameOver() == true){
     		output = output + winner;
     	}
-	//The message of who’s turn it is
+	//The message of who’s turn it is if the game didn't end
     	else {
     		if(who == 'O')
     			who = 'X';
