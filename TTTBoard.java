@@ -6,6 +6,8 @@
  *  the state of the game itself.
  */
 
+//Import SimpleIO and Random provided by Cezar
+
 import static dit948.SimpleIO.*;
 import static dit948.Random.*;
 
@@ -34,28 +36,29 @@ public class TTTBoard {
      *          column, or diagonal.
      */
     public boolean gameOver() {
-	//Creating a boolean gamestate to determine if it is game over.
+    	//Creating a boolean gamestate to determine if it is game over.
     	boolean gamestate = false;
 	
-	//Creating a key for all the winning combinations in the array there is in the game.
+    	//Creating a key for all the winning combinations in the game.
     	if ((who == board[0][0] && who == board[0][1] && who == board[0][2]) ||
     		(who == board[1][0] && who == board[1][1] && who == board[1][2]) ||
-    		    (who == board[2][0] && who == board[2][1] && who == board[2][2]) 
-    		    ||
-    		    (who == board[0][0] && who == board[1][0] && who == board[2][0]) ||
-    			(who == board[0][1] && who == board[1][1] && who == board[2][1]) ||
-    			(who == board[0][2] && who == board[1][2] && who == board[2][2])
-    		    ||
-    			(who == board[0][0] && who == board[1][1] && who == board[2][2]) ||
-    			(who == board[0][2] && who == board[1][1] && who == board[2][0]))
+    		(who == board[2][0] && who == board[2][1] && who == board[2][2]) 
+    		||
+    	    (who == board[0][0] && who == board[1][0] && who == board[2][0]) ||
+    		(who == board[0][1] && who == board[1][1] && who == board[2][1]) ||
+   			(who == board[0][2] && who == board[1][2] && who == board[2][2])
+   		    ||
+   			(who == board[0][0] && who == board[1][1] && who == board[2][2]) ||
+   			(who == board[0][2] && who == board[1][1] && who == board[2][0]))
     	{
     		//If one of the combinations above is true the game ends and it tells who the winner is 
     		gamestate = true;
     		winner = "The winner is Player " + who;
     	}
 
-		//If the has an empty cell it continue and if it is full gamestate is true
-    	//and there is no of the keys above has worked it is a draw
+		//If none of the key is true --> check if there is an empty cell
+    	// if there is an empty cell --> continue
+    	// if not --> game is over and it is a draw
     	else{
     		gamestate = true;
     		
@@ -79,7 +82,7 @@ public class TTTBoard {
     public void setRandomCell() {
     	
     	//This makes the program to set a random cell for X or O for the randomPlayer
-    	//Therefore two integers are assigned to random nubers between 0 and 2
+    	//Therefore two integers are assigned to random numbers between 0 and 2
     	int a = randomInt(3);
     	int b = randomInt(3);
     	

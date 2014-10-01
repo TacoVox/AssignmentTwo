@@ -56,7 +56,8 @@ public class TTT {
     	// ends if game is over
     	    	
     	do{    
-    		//Call move method from the player which has the move - based on the random no
+    		// call move method from the player which has the move
+    		// based on the random number
     		players[currentPlayer].move(board);
     		
     		// if condition to change players	
