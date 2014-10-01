@@ -44,33 +44,26 @@ public class TTT {
     public void play() {
     	
     	// random integer for which player to move first
-    	int player = randomInt(2) + 1;
+    	int currentPlayer = randomInt(2);
     	
     	// print which player is to move
-    	println("Player " + player + " has the first move");
+    	println("Player " + currentPlayer + " has the first move");
     	
     	// print board (initially empty)
     	println(board.toString());
-    	
-    	// integer for switching players
-    	int currentPlayer = player;
     			
     	// do..while loop for the game (we want to run it at least one)
     	// ends if game is over
     	    	
-    	do{    		
-    		// if condition for player to move based on random number above
-    		if (currentPlayer == 1) {
-    			players[0].move(board);
-    		} else {
-    			players[1].move(board);
-    		} // end if condition
+    	do{    
+    		//Call move method from the player which has the move - based on the random no
+    		players[currentPlayer].move(board);
     		
     		// if condition to change players	
-    		if (currentPlayer == 1) {
-    			currentPlayer = 2;
-    		} else {
+    		if (currentPlayer == 0) {
     			currentPlayer = 1;
+    		} else {
+    			currentPlayer = 0;
     		} // end if condition
     		
     		// print the board
